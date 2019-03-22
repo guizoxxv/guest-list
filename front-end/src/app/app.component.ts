@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { NavbarComponent } from './navbar/navbar.component';
 
 export interface Guest {
   name: string;
@@ -18,6 +19,7 @@ const GUESTS_DATA: Guest[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  searchBarActive: boolean = false;
   displayedColumns: string[] = ['name', 'present'];
   dataSource = new MatTableDataSource(GUESTS_DATA);
 
