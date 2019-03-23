@@ -5,11 +5,11 @@ import { SearchbarToogle } from '../actions/searchbar.action';
 import { AppState } from '../app.state';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-searchbar',
+  templateUrl: './searchbar.component.html',
+  styleUrls: ['./searchbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class SearchbarComponent implements OnInit {
 
   searchbarActive$: Observable<boolean>;
 

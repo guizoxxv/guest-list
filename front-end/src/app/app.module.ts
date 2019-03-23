@@ -10,14 +10,18 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatIconModule } from "@angular/material/icon";
 
+import { StoreModule } from '@ngrx/store';
+// import { reducers, metaReducers } from './reducers';
+import { SearchbarActiveReducer } from './reducers/searchbar-active.reducer';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatInputModule,
     MatTableModule,
     MatSlideToggleModule,
-    MatIconModule,
+    // StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({
+      searchbarActive: SearchbarActiveReducer,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

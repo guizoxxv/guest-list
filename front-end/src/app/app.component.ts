@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { NavbarComponent } from './navbar/navbar.component';
-
-export interface Guest {
-  name: string;
-  present: boolean,
-}
+import { Guest } from './models/guest.model';
 
 const GUESTS_DATA: Guest[] = [
   { name: 'Huguinho', present: false },
@@ -23,7 +19,7 @@ export class AppComponent {
   displayedColumns: string[] = ['name', 'present'];
   dataSource = new MatTableDataSource(GUESTS_DATA);
 
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  // applyFilter(filterValue: string) {
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
 }

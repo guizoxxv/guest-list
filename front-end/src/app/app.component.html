@@ -1,12 +1,5 @@
 <app-navbar></app-navbar>
-
-<mat-toolbar *ngIf="!searchBarActive">
-  <i class="material-icons">search</i>
-  <mat-form-field class="w-full mx-3">
-    <input matInput (keyup)="applyFilter($event.target.value)" autofocus>
-  </mat-form-field>
-  <i class="material-icons">clear</i>
-</mat-toolbar>
+<app-searchbar></app-searchbar>
 
 <div class="container mx-auto m-5">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-full mt-5">
