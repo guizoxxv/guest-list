@@ -12,16 +12,18 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { StoreModule } from '@ngrx/store';
-// import { reducers, metaReducers } from './reducers';
-import { SearchbarActiveReducer } from './reducers/searchbar-active.reducer';
+import { SearchbarReducer } from './reducers/searchbar.reducer';
+import { GuestsTableReducer } from './reducers/guests-table.reducer';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { GuestsTableComponent } from './guests-table/guests-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    GuestsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +34,9 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     MatInputModule,
     MatTableModule,
     MatSlideToggleModule,
-    // StoreModule.forRoot(reducers, { metaReducers }),
     StoreModule.forRoot({
-      searchbarActive: SearchbarActiveReducer,
+      searchbar: SearchbarReducer,
+      guestsTable: GuestsTableReducer,
     }),
   ],
   providers: [],

@@ -1,0 +1,16 @@
+<div class="container mx-auto m-5">
+  <table mat-table [dataSource]="guestsDataSource$ | async" class="mat-elevation-z8 w-full mt-5">
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="present">
+      <th mat-header-cell *matHeaderCellDef>Present</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-slide-toggle [checked]="element.present"></mat-slide-toggle>
+      </td>
+    </ng-container>
+  </table>
+</div>

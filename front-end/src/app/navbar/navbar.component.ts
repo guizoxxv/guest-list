@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   searchbarActive$: Observable<boolean>;
 
   constructor(private store: Store<AppState>) {
-    this.searchbarActive$ = store.select('searchbarActive');
+    this.searchbarActive$ = store.select('searchbar');
   }
 
   toogleSearchbar() {

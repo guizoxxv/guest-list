@@ -1,13 +1,4 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
-import { NavbarComponent } from './navbar/navbar.component';
-import { Guest } from './models/guest.model';
-
-const GUESTS_DATA: Guest[] = [
-  { name: 'Huguinho', present: false },
-  { name: 'Zezinho', present: true },
-  { name: 'Luizinho', present: false },
-];
 
 @Component({
   selector: 'app-root',
@@ -15,11 +6,5 @@ const GUESTS_DATA: Guest[] = [
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  searchBarActive: boolean = false;
-  displayedColumns: string[] = ['name', 'present'];
-  dataSource = new MatTableDataSource(GUESTS_DATA);
-
-  // applyFilter(filterValue: string) {
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  // }
+  //
 }
