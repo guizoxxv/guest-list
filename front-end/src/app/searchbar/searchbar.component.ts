@@ -32,7 +32,6 @@ export class SearchbarComponent implements OnInit {
     this.store.dispatch(new GuestsTableFilter(filterValue));
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

@@ -1,1 +1,1 @@
-* Barra de pesquisa similar a em [Material Icons](https://material.io/)
+* Aplicar foco no campo de busca ao abrir o componente searchbar

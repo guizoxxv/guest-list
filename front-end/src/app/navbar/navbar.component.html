@@ -2,5 +2,6 @@
   <i class="material-icons mr-2">people</i>
   <span>Guest List</span>
   <span class="spacer"></span>
+  <span class="cursor-pointer hover:text-yellow-light mr-5" (click)="toogleLettersCard()" [class.text-yellow-light]="lettersCardActive$ | async">A - Z</span>
   <i class="material-icons cursor-pointer hover:text-yellow-light" (click)="toogleSearchbar()">search</i>
 </mat-toolbar>

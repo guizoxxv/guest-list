@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { SearchbarToogle } from '../actions/searchbar.action';
 import { AppState } from '../app.state';
+import { LettersCardToogle } from '../actions/letters-card.action';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,7 @@ import { AppState } from '../app.state';
 export class NavbarComponent implements OnInit {
 
   searchbarActive$: Observable<boolean>;
+  lettersCardActive$: Observable<boolean>;
 
   constructor(private store: Store<AppState>) {
     this.searchbarActive$ = store.select('searchbar');
@@ -19,6 +21,10 @@ export class NavbarComponent implements OnInit {
 
   toogleSearchbar() {
     this.store.dispatch(new SearchbarToogle());
+  }
+
+  toogleLettersCard() {
+    this.store.dispatch(new LettersCardToogle());
   }
 
   ngOnInit() {
