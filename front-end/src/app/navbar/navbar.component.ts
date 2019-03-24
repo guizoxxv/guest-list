@@ -17,7 +17,12 @@ export class NavbarComponent implements OnInit {
   lettersCardActive$: Observable<boolean>;
 
   constructor(private store: Store<AppState>) {
-    this.searchbarActive$ = store.select('searchbar');
+    store.select('searchbar').subscribe(state => {
+      this.searchbarActive$ = state;
+    });
+    store.select('lettersCard').subscribe(state => {
+      this.lettersCardActive$ = state;
+    });
   }
 
   toogleSearchbar() {
@@ -26,6 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toogleLettersCard() {
+    this.store.dispatch(new GuestsTableFilter(''));
     this.store.dispatch(new LettersCardToogle());
   }
 

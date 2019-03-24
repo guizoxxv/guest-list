@@ -17,7 +17,9 @@ export class SearchbarComponent implements OnInit {
   guestsFilter$: Observable<string>;
 
   constructor(private store: Store<AppState>) {
-    this.searchbarActive$ = store.select('searchbar');
+    store.select('searchbar').subscribe(state => {
+      this.searchbarActive$ = state;
+    });
     store.select('guestsTable').subscribe(state => {
       this.guestsDataSource$ = state.guestsDataSource;
       this.guestsFilter$ = state.filter;
