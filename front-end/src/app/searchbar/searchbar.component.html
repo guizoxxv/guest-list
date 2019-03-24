@@ -3,5 +3,6 @@
   <mat-form-field class="w-full mx-3">
     <input matInput (keyup)="applyFilter($event.target.value)" value="{{ filter }}" autofocus>
   </mat-form-field>
-  <i class="material-icons" (click)="toogleSearchbar()">clear</i>
+  <i class="material-icons mr-3 cursor-pointer hover:text-red" (click)="applyFilter('')">delete</i>
+  <i class="material-icons cursor-pointer hover:text-red" (click)="toogleSearchbar()">clear</i>
 </mat-toolbar>
