@@ -35,4 +35,12 @@ export class LettersCardComponent implements OnInit {
     }
   }
 
+  letterClasses(letter) {
+    if (String(this.guestsFilter$) == letter) {
+      return 'bg-grey-dark';
+    }
+
+    return 'bg-grey-light';
+  }
+
 }
