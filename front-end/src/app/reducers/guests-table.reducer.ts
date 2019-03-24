@@ -13,14 +13,17 @@ GUEST_DATA_SOURCE.filterPredicate = function (data, filter: string): boolean {
     return data.name.trim().toLowerCase().startsWith(filter.trim().toLowerCase()) || data.formatted_name.trim().toLowerCase().startsWith(filter.trim().toLowerCase());
 };
 
-export function GuestsTableReducer(state = GUEST_DATA_SOURCE, action) {
+export function GuestsTableReducer(state = { filter: '', guestsDataSource: GUEST_DATA_SOURCE }, action) {
     switch (action.type) {
         case ActionTypes.GuestsTableSet:
             return state;
         case ActionTypes.GuestsTableFilter:
-            state.filter = action.payload;
+            state.guestsDataSource.filter = action.payload;
 
-            return state;
+            return {
+                ...state,
+                filter: action.payload,
+            };
         default:
             return state;
     }

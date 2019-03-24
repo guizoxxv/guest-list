@@ -1,5 +1,5 @@
 <div class="container mx-auto m-5">
-  <table mat-table [dataSource]="guestsDataSource$ | async" class="mat-elevation-z8 w-full mt-5">
+  <table mat-table [dataSource]="guestsDataSource$" class="mat-elevation-z8 w-full mt-5">
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     <ng-container matColumnDef="name">

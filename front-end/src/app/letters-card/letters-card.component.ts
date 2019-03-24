@@ -13,11 +13,14 @@ export class LettersCardComponent implements OnInit {
   letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
   searchbarActive$: Observable<boolean>;
   lettersCardActive$: Observable<boolean>;
-  filter: string;
+  guestsFilter$: Observable<string>;
   
   constructor(private store: Store<AppState>) {
     this.searchbarActive$ = store.select('searchbar');
     this.lettersCardActive$ = store.select('lettersCard');
+    store.select('guestsTable').subscribe(state => {
+      this.guestsFilter$ = state.filter;
+    });
   }
   
   ngOnInit() {
@@ -25,10 +28,9 @@ export class LettersCardComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    if(this.filter == filterValue) {
+    if (String(this.guestsFilter$) == filterValue) {
       this.store.dispatch(new GuestsTableFilter(''));
     } else {
-      this.filter = filterValue;
       this.store.dispatch(new GuestsTableFilter(filterValue));
     }
   }

@@ -1,1 +1,8 @@
 * Aplicar foco no campo de busca ao abrir o componente searchbar
+* filter como observable
+* Adicionar convidados de pessoas na lista
+* Autentificação
+* Websocket
+* Upload de planilha
+* Efeitos
+* Dados vindos do DB

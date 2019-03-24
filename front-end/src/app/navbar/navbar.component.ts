@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { SearchbarToogle } from '../actions/searchbar.action';
 import { AppState } from '../app.state';
 import { LettersCardToogle } from '../actions/letters-card.action';
+import { GuestsTableFilter } from '../actions/guests-table.action';
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toogleSearchbar() {
+    this.store.dispatch(new GuestsTableFilter(''));
     this.store.dispatch(new SearchbarToogle());
   }
 

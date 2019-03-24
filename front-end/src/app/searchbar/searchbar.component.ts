@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { SearchbarToogle } from '../actions/searchbar.action';
 import { GuestsTableFilter } from '../actions/guests-table.action';
 import { AppState } from '../app.state';
-import { Guest } from '../models/guest.model';
 
 @Component({
   selector: 'app-searchbar',
@@ -14,12 +13,15 @@ import { Guest } from '../models/guest.model';
 export class SearchbarComponent implements OnInit {
 
   searchbarActive$: Observable<boolean>;
-  guests$: Observable<Guest[]>;
   guestsDataSource$: Observable<Object>;
-  filter: string;
+  guestsFilter$: Observable<string>;
 
   constructor(private store: Store<AppState>) {
     this.searchbarActive$ = store.select('searchbar');
+    store.select('guestsTable').subscribe(state => {
+      this.guestsDataSource$ = state.guestsDataSource;
+      this.guestsFilter$ = state.filter;
+    });
   }
 
   toogleSearchbar() {
@@ -28,7 +30,6 @@ export class SearchbarComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.filter = filterValue;
     this.store.dispatch(new GuestsTableFilter(filterValue));
   }
 
