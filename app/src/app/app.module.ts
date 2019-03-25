@@ -17,6 +17,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { GuestsTableComponent } from './components/guests-table/guests-table.component';
 import { LettersCardComponent } from './components/letters-card/letters-card.component';
+import { GuestsCounterComponent } from './components/guests-counter/guests-counter.component';
+
 import { GuestsTableReducer } from './reducers/guests-table.reducer';
 import { SearchbarReducer } from './reducers/searchbar.reducer';
 import { LettersCardReducer } from './reducers/letters-card.reducer';
@@ -27,7 +29,8 @@ import { LettersCardReducer } from './reducers/letters-card.reducer';
     NavbarComponent,
     SearchbarComponent,
     GuestsTableComponent,
-    LettersCardComponent
+    LettersCardComponent,
+    GuestsCounterComponent
   ],
   imports: [
     BrowserModule,
