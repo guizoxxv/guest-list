@@ -1,7 +1,7 @@
 const Guest = require('../models/guest');
 
 exports.guestsList = (req, res, next) => {
-    Guest.find()
+    Guest.find({}, { '_id': false })
         .select('name formatted_name present')
         .exec()
         .then(docs => {
