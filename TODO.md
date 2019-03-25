@@ -4,5 +4,6 @@
 * Websocket
 * Upload de planilha
 * Efeitos
-* Dados vindos do DB
+* Atualizar coluna present na collection guests ao mudar no front
 * Pasta components
+* contagem de convidados (presentes / total)
