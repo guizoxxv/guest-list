@@ -13,4 +13,8 @@ export class GuestService {
 
     return this.http.get(`${apiHost}/api/guests`);
   }
+
+  updateGuest() {
+    //
+  }
 }

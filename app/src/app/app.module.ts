@@ -13,12 +13,12 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-import { SearchbarReducer } from './reducers/searchbar.reducer';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { GuestsTableComponent } from './components/guests-table/guests-table.component';
+import { LettersCardComponent } from './components/letters-card/letters-card.component';
 import { GuestsTableReducer } from './reducers/guests-table.reducer';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SearchbarComponent } from './searchbar/searchbar.component';
-import { GuestsTableComponent } from './guests-table/guests-table.component';
-import { LettersCardComponent } from './letters-card/letters-card.component';
+import { SearchbarReducer } from './reducers/searchbar.reducer';
 import { LettersCardReducer } from './reducers/letters-card.reducer';
 
 @NgModule({

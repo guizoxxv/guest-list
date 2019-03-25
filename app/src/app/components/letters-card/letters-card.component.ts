@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../app.state';
-import { GuestsTableFilter } from '../actions/guests-table.action';
+import { AppState } from '../../app.state';
+import { GuestsTableFilter } from '../../actions/guests-table.action';
 
 @Component({
   selector: 'app-letters-card',
@@ -16,8 +16,12 @@ export class LettersCardComponent implements OnInit {
   guestsFilter$: Observable<string>;
   
   constructor(private store: Store<AppState>) {
-    this.searchbarActive$ = store.select('searchbar');
-    this.lettersCardActive$ = store.select('lettersCard');
+    store.select('searchbar').subscribe(state => {
+      this.searchbarActive$ = state;
+    });
+    store.select('lettersCard').subscribe(state => {
+      this.lettersCardActive$ = state;
+    });
     store.select('guestsTable').subscribe(state => {
       this.guestsFilter$ = state.filter;
     });

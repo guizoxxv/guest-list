@@ -1,6 +1,6 @@
 const Guest = require('../models/guest');
 
-exports.guestsList = (req, res, next) => {
+exports.getGuests = (req, res, next) => {
     Guest.find({}, { '_id': false })
         .select('name formatted_name present')
         .exec()
@@ -13,4 +13,8 @@ exports.guestsList = (req, res, next) => {
                 error: err,
             });
         });
+}
+
+exports.updateGuest = (req, res, next) => {
+    //
 }

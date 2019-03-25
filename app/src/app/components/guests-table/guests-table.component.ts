@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../app.state';
-import { GuestService } from '../services/guest.service';
-import { GuestsTableSet } from '../actions/guests-table.action';
+import { AppState } from '../../app.state';
+import { GuestService } from '../../services/guest.service';
+import { GuestsTableSet } from '../../actions/guests-table.action';
 
 @Component({
   selector: 'app-guests-table',

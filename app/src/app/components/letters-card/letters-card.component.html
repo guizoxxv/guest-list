@@ -1,4 +1,4 @@
-<div class="container mx-auto m-5" *ngIf="(lettersCardActive$ | async) && !(searchbarActive$ | async)">
+<div class="container mx-auto m-5" *ngIf="lettersCardActive$  && !searchbarActive$">
   <mat-card>
     <div class="flex flex-wrap align-center justify-center">
       <span *ngFor="let letter of letters" class="letter cursor-pointer font-mono rounded-full w-8 h-8 flex items-center justify-center m-1 hover:bg-grey" (click)="applyFilter(letter)" [ngClass]="letterClasses(letter)">{{ letter }}</span>
