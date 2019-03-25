@@ -1,7 +1,7 @@
 const Guest = require('../models/guest');
 
 exports.getGuests = (req, res, next) => {
-    Guest.find({}, { '_id': false })
+    Guest.find({})
         .select('name formatted_name present')
         .exec()
         .then(docs => {
@@ -15,6 +15,15 @@ exports.getGuests = (req, res, next) => {
         });
 }
 
-exports.updateGuest = (req, res, next) => {
-    //
+exports.updateGuestPresent = (req, res, next) => {
+    Guest.findOneAndUpdate({ _id: req.body._id }, { present: !req.body.present })
+        .then(doc => {
+            res.status(200).json(doc);
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'An error occurred',
+                error: err,
+            });
+        });
 }

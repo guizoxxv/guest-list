@@ -4,5 +4,4 @@
 * Websocket
 * Upload de planilha
 * Efeitos
-* Atualizar coluna present na collection guests ao mudar no front
-* contagem de convidados (presentes / total)
+* DB Mock
