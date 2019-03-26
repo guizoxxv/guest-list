@@ -1,16 +1,30 @@
 version: "3"
 services:
+  # Development
+  # server:
+  # build:
+  #   context: ./server
+  #   dockerfile: Dockerfile-dev
+  #   volumes:
+  #     - ./server:/usr/src/app
+  #   working_dir: /usr/src/app
+  #   ports:
+  #     - 3009:3000
+  #   tty: true
+  #   command: npm run watch
+  # Production
   server:
-    build: ./server
+    build:
+      context: ./server
+      dockerfile: Dockerfile-prod
     volumes:
       - ./server:/usr/src/app
     working_dir: /usr/src/app
     ports:
       - 3009:3000
     tty: true
-    command: npm run watch
   db:
-    image: mongo
+    image: mongo:4
     ports:
       - 3010:27017
     volumes:

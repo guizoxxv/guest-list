@@ -1,22 +1,21 @@
-import { Injectable, isDevMode } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuestService {
+  private apiHost: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.apiHost = 'http://localhost:3009';
+  }
 
   getGuests() {
-    let apiHost = isDevMode() ? 'http://172.17.0.1:3009' : 'http://127.0.0.1:8080';
-
-    return this.http.get(`${apiHost}/api/guests`);
+    return this.http.get(`${this.apiHost}/api/guests`);
   }
 
   updateGuestPresent(guest) {
-    let apiHost = isDevMode() ? 'http://172.17.0.1:3009' : 'http://127.0.0.1:8080';
-
-    return this.http.put(`${apiHost}/api/guests`, guest);
+    return this.http.put(`${this.apiHost}/api/guests`, guest);
   }
 }

@@ -2,8 +2,8 @@ const Guest = require('../models/guest');
 
 exports.getGuests = (req, res, next) => {
     Guest.find({})
+        .sort({ formatted_name: 1 })
         .select('name formatted_name present')
-        .exec()
         .then(docs => {
             res.status(200).json(docs);
         })
