@@ -4,4 +4,3 @@
 * Websocket
 * Upload de planilha
 * Efeitos
-* DB Mock
