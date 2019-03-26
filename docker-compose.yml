@@ -21,7 +21,7 @@ services:
       - ./server:/usr/src/app
     working_dir: /usr/src/app
     ports:
-      - 3009:3000
+      - 3000:3000
     tty: true
   db:
     image: mongo:4
