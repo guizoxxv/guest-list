@@ -8,7 +8,7 @@ export class GuestService {
   private apiHost: string;
 
   constructor(private http: HttpClient) {
-    this.apiHost = isDevMode() ? 'http://localhost:3009' : 'http://localhost:3000';
+    this.apiHost = isDevMode() ? 'http://localhost:3009' : 'http://172.17.0.1:3000';
   }
 
   getGuests() {
