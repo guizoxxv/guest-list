@@ -1,5 +1,6 @@
-import { Injectable, isDevMode } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class GuestService {
   private apiHost: string;
 
   constructor(private http: HttpClient) {
-    this.apiHost = isDevMode() ? 'http://localhost:3009' : 'https://guest-list-server.guizoxxv.com.br';
+    this.apiHost = environment.apiHost;
   }
 
   getGuests() {
