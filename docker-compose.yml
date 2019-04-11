@@ -24,15 +24,18 @@ services:
   #     - 3000:3000
   #   tty: true
   db:
-    image: mongo:4
+    image: postgres:11.2
     ports:
-      - 3010:27017
+      - 3010:5432
     volumes:
-      - dbdata:/data/db
-      - ./db:/home/db
-    working_dir: /home/db
+      - dbdata:/var/lib/postgresql/data
+      - ./db:/home/db_dumps
+    working_dir: /home/db_dumps
     environment:
       - TZ=America/Sao_Paulo
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=guest_list
 volumes:
   dbdata:
     driver: local
