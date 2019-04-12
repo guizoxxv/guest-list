@@ -10,7 +10,7 @@ CREATE TABLE events (
 INSERT INTO events (name, data, guests, created_at, updated_at) VALUES (
     'Paranoid Android',
     NULL,
-    '{"guests":[{"id":"c035a449-2edb-4516-87ba-a773fbb7c9cd","name":"Huguinho","formatted_name":"huguinho","present":true},{"id":"fceb2d97-7795-4f0c-8c6a-f9e1fcb0cd35","name":"Zézinho","formatted_name":"zezinho","present":false},{"id":"eed8e2d7-a31d-4f77-a208-9d2af47981ba","name":"Luizinho","formatted_name":"luizinho","present":true}]}',
+    '{"guests":{"c035a449-2edb-4516-87ba-a773fbb7c9cd":{"id":"c035a449-2edb-4516-87ba-a773fbb7c9cd","name":"Huguinho","present":true,"formatted_name":"huguinho"},"fceb2d97-7795-4f0c-8c6a-f9e1fcb0cd35":{"id":"fceb2d97-7795-4f0c-8c6a-f9e1fcb0cd35","name":"Zézinho","present":false,"formatted_name":"zezinho"},"eed8e2d7-a31d-4f77-a208-9d2af47981ba":{"id":"eed8e2d7-a31d-4f77-a208-9d2af47981ba","name":"Luizinho","present":true,"formatted_name":"luizinho"}}}',
     NOW(),
     NULL
 );

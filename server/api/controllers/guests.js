@@ -16,20 +16,22 @@ exports.getGuests = (req, res, next) => {
 }
 
 exports.updateGuestPresent = (req, res, next) => {
-    pool.query('UPDATE events SET guests = jsonb_set(guests, "{present,0}", true, false) WHERE id = 1')
-        .then(result => {
-                res.status(200).json(result);
-            })
-        .catch(e => console.error(e.stack))
+    let guestId = req.body.id;
+    let present = !req.body.present;
+    let path = `{guests, ${guestId}, present}`;
 
-    // Guest.findOneAndUpdate({ _id: req.body._id }, { present: !req.body.present })
-    //     .then(doc => {
-    //         res.status(200).json(doc);
-    //     })
-    //     .catch(err => {
-    //         res.status(500).json({
-    //             message: 'An error occurred',
-    //             error: err,
-    //         });
-    //     });
+    pool.query(
+            `UPDATE events
+            SET guests = jsonb_set(guests, $1, $2::jsonb, false)
+            WHERE id = $3
+            RETURNING guests->'guests'->$4 as guest`,
+            [path, present, 1, guestId]
+        )
+        .then(result => {
+            res.status(200).json({
+                message: 'Guest updated',
+                guest: result.rows[0].guest
+            });
+        })
+        .catch(e => console.error(e.stack))
 }
