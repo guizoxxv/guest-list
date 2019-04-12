@@ -1,6 +1,22 @@
+$gray: #B8C2CC;
+$yellow: #FFED4A;
+
 .spacer {
     flex: 1 1 auto;
 }
 .material-icons {
     font-size: 30px;
+}
+.btn-auth {
+    border: 1px solid $gray;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: $gray;
+    font-size: 16px;
+    transition: 0.3s;
+    &:hover {
+       border: 1px solid $yellow;
+       background-color: $yellow;
+       color: black; 
+    }
 }
