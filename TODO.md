@@ -4,3 +4,4 @@
 * Websocket
 * Upload de planilha
 * Efeitos
+* events column authorized_users

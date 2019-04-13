@@ -1,24 +1,26 @@
-use guest-list;
-
-db.createCollection('guests');
-
-db.guests.insert([
-    {
-        name: "Huguinho",
-        formatted_name: "huguinho",
-        present: true,
-    },
-    {
-        name: "Zézinho",
-        formatted_name: "zezinho",
-        present: false,
-    },
-    {
-        name: "Luizinho",
-        formatted_name: "luizinho",
-        present: true,
-    },
-]);
+db.events.insert({
+    "name": "Event 1",
+    "guests": [
+        {
+            _id: new ObjectId(),
+            name: "Huguinho",
+            formatted_name: "huguinho",
+            present: true,
+        },
+        {
+            _id: new ObjectId(),
+            name: "Zézinho",
+            formatted_name: "zezinho",
+            present: false,
+        },
+        {
+            _id: new ObjectId(),
+            name: "Luizinho",
+            formatted_name: "luizinho",
+            present: true,
+        },
+    ]
+});
 
 db.guests.insert([{"name":"Ryleigh Ritchie","formatted_name":"ryleigh ritchie","present":true},{"name":"Guillermo Gaylord","formatted_name":"guillermo gaylord","present":true},{"name":"Jovanny Howell","formatted_name":"jovanny howell","present":false},{"name":"Mertie Kuvalis","formatted_name":"mertie kuvalis","present":false},{"name":"Kiarra Hansen","formatted_name":"kiarra hansen","present":false},{"name":"Annetta Buckridge","formatted_name":"annetta buckridge","present":true},{"name":"Christop Lubowitz","formatted_name":"christop lubowitz","present":true},{"name":"Mollie Blanda","formatted_name":"mollie blanda","present":false},{"name":"Mason Dickinson Jr.","formatted_name":"mason dickinson jr.","present":true},{"name":"Zola Bruen","formatted_name":"zola bruen","present":true},{"name":"Leta MacGyver","formatted_name":"leta macgyver","present":false},{"name":"Emie Jaskolski","formatted_name":"emie jaskolski","present":true},{"name":"Mrs. Cassandra Satterfield","formatted_name":"mrs. cassandra satterfield","present":false},{"name":"Gina Schimmel","formatted_name":"gina schimmel","present":false},{"name":"Eldon Morar","formatted_name":"eldon morar","present":true},{"name":"Arlie Renner","formatted_name":"arlie renner","present":false},{"name":"Janet Braun","formatted_name":"janet braun","present":true},{"name":"Kayleigh Simonis I","formatted_name":"kayleigh simonis i","present":true},{"name":"Vincenzo Schoen","formatted_name":"vincenzo schoen","present":false},{"name":"Dusty Kemmer","formatted_name":"dusty kemmer","present":true},{"name":"Greta Okuneva","formatted_name":"greta okuneva","present":true},{"name":"Yasmin Sawayn","formatted_name":"yasmin sawayn","present":false},{"name":"Bradford Hackett","formatted_name":"bradford hackett","present":false},{"name":"Kennith Kuphal PhD","formatted_name":"kennith kuphal phd","present":true},{"name":"Mr. Audrey Collier","formatted_name":"mr. audrey collier","present":true},{"name":"Miss Patrick Watsica","formatted_name":"miss patrick watsica","present":true},{"name":"Elroy O'Keefe","formatted_name":"elroy o'keefe","present":true},{"name":"Arvid Konopelski","formatted_name":"arvid konopelski","present":false},{"name":"Joy Kovacek Sr.","formatted_name":"joy kovacek sr.","present":false},{"name":"Savanah Rutherford","formatted_name":"savanah rutherford","present":false},{"name":"Meta Homenick","formatted_name":"meta homenick","present":true},{"name":"Cameron Terry","formatted_name":"cameron terry","present":false},{"name":"Dr. Randy Armstrong","formatted_name":"dr. randy armstrong","present":false},{"name":"Alta Schneider","formatted_name":"alta schneider","present":false},{"name":"Bryce Kuhic","formatted_name":"bryce kuhic","present":true},{"name":"Bradley Schumm","formatted_name":"bradley schumm","present":true},{"name":"Alyson Runolfsson","formatted_name":"alyson runolfsson","present":true},{"name":"Dr. Hank Stamm","formatted_name":"dr. hank stamm","present":true},{"name":"Hank DuBuque","formatted_name":"hank dubuque","present":false},{"name":"Luigi Barrows","formatted_name":"luigi barrows","present":true},{"name":"Myra Daniel","formatted_name":"myra daniel","present":true},{"name":"Germaine Renner DDS","formatted_name":"germaine renner dds","present":false},{"name":"Isabell Bruen","formatted_name":"isabell bruen","present":false},{"name":"Gisselle Kerluke","formatted_name":"gisselle kerluke","present":false},{"name":"Tyson Christiansen","formatted_name":"tyson christiansen","present":true},{"name":"Dale Kuhic","formatted_name":"dale kuhic","present":false},{"name":"Cody Ondricka","formatted_name":"cody ondricka","present":true},{"name":"Ona Block","formatted_name":"ona block","present":false},{"name":"Jennings Ankunding","formatted_name":"jennings ankunding","present":true},{"name":"Chase Wintheiser","formatted_name":"chase wintheiser","present":false}]);
 

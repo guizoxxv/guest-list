@@ -16,4 +16,7 @@ const guestSchema = mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('Guest', guestSchema, 'guests');
+module.exports = {
+    model: mongoose.model('Guest', guestSchema),
+    schema: guestSchema
+}
