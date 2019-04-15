@@ -1,7 +1,8 @@
 <mat-toolbar color="primary" *ngIf="!(searchbarActive$)">
-  <i class="material-icons mr-2">people</i>
+  <i class="material-icons cursor-pointer hover:text-yellow-light mr-5">arrow_back</i>
+  <span>Evento 1</span>
   <span class="spacer"></span>
   <span class="cursor-pointer hover:text-yellow-light mr-5" (click)="toogleLettersCard()" [class.text-yellow-dark]="lettersCardActive$">A - Z</span>
   <i class="material-icons cursor-pointer hover:text-yellow-light" (click)="toogleSearchbar()">search</i>
-  <button class="btn-auth btn-login ml-5">Login</button>
+  <!-- <button class="btn-auth btn-login ml-5">Logout</button> -->
 </mat-toolbar>

@@ -1,18 +1,11 @@
-const { Pool } = require('pg')
-
-const pool = new Pool({
-    host: 'db',
-    database: 'guest_list',
-    user: 'root',
-    password: 'root',
-})
+const db = require('../db/connection');
 
 exports.getGuests = (req, res, next) => {
-    pool.query('SELECT guests FROM events WHERE id = $1', [1])
+    db.query('SELECT guests FROM events WHERE id = $1', [1])
         .then(result => {
             res.status(200).json(result.rows[0] ? Object.values(result.rows[0].guests) : []);
         })
-        .catch(e => console.error(e.stack))
+        .catch(e => console.error(e.stack));
 }
 
 exports.updateGuestPresent = (req, res, next) => {
@@ -20,7 +13,7 @@ exports.updateGuestPresent = (req, res, next) => {
     let present = !req.body.present;
     let path = `{${guestId}, present}`;
 
-    pool.query(
+    db.query(
             `UPDATE events
             SET guests = jsonb_set(guests, $1, $2::jsonb, false)
             WHERE id = $3
@@ -33,5 +26,5 @@ exports.updateGuestPresent = (req, res, next) => {
                 guest: result.rows[0].guest
             });
         })
-        .catch(e => console.error(e.stack))
+        .catch(e => console.error(e.stack));
 }

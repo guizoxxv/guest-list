@@ -1,9 +1,9 @@
-var faker = require('faker');
-var latinize = require('latinize');
-
 const express = require('express');
 const router = express.Router();
 const GuestsController = require('../controllers/guests');
+
+var faker = require('faker');
+var latinize = require('latinize');
 
 router.get('/faker', (req, res, next) => {
     let guests = [];
