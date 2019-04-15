@@ -1,7 +1,9 @@
-const db = require('../db/connection');
+const db = require('../db');
 
 exports.getGuests = (req, res, next) => {
-    db.query('SELECT guests FROM events WHERE id = $1', [1])
+    let eventId = req.params.event_id;
+
+    db.query('SELECT guests FROM events WHERE id = $1', [eventId])
         .then(result => {
             res.status(200).json(result.rows[0] ? Object.values(result.rows[0].guests) : []);
         })

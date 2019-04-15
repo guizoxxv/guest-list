@@ -2,14 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
-const apiAuthRoutes = require('./api/routes/auth');
-const apiGuestsRoutes = require('./api/routes/guests');
+const apiRoutes = require('./api/routes');
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/api/auth', apiAuthRoutes);
-app.use('/api/guests', apiGuestsRoutes);
+app.use('/api', apiRoutes);
 
 app.use((req, res, next) => {
     let err = new Error('Not found');

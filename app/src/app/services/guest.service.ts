@@ -13,10 +13,10 @@ export class GuestService {
   }
 
   getGuests() {
-    return this.http.get(`${this.apiHost}/api/guests`);
+    return this.http.get(`${this.apiHost}/api/events/1/guests`);
   }
 
   updateGuestPresent(guest) {
-    return this.http.put(`${this.apiHost}/api/guests`, guest);
+    return this.http.put(`${this.apiHost}/api/events/1/guests/update-present`, guest);
   }
 }
