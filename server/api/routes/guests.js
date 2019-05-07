@@ -20,7 +20,7 @@ router.get('/faker', (req, res, next) => {
 
     res.status(200).json(guests);
 });
-router.get('/', GuestsController.getGuests);
-router.put('/', GuestsController.updateGuestPresent);
+router.get('/:eventId', GuestsController.getGuests);
+router.put('/:eventId', GuestsController.updateGuestPresent);
 
 module.exports = router;

@@ -40,5 +40,4 @@ export class GuestsTableComponent implements OnInit {
           });
       });
   }
-
 }

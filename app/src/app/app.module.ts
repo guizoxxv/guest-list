@@ -22,6 +22,8 @@ import { GuestsCounterComponent } from './components/guests-counter/guests-count
 import { GuestsTableReducer } from './reducers/guests-table.reducer';
 import { SearchbarReducer } from './reducers/searchbar.reducer';
 import { LettersCardReducer } from './reducers/letters-card.reducer';
+import { GuestListComponent } from './components/guest-list/guest-list.component';
+import { EventListComponent } from './components/event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { LettersCardReducer } from './reducers/letters-card.reducer';
     SearchbarComponent,
     GuestsTableComponent,
     LettersCardComponent,
-    GuestsCounterComponent
+    GuestsCounterComponent,
+    GuestListComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
