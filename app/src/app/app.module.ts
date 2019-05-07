@@ -13,7 +13,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { GuestListNavbarComponent } from './components/guest-list-navbar/guest-list-navbar.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { GuestsTableComponent } from './components/guests-table/guests-table.component';
 import { LettersCardComponent } from './components/letters-card/letters-card.component';
@@ -28,7 +28,7 @@ import { EventListComponent } from './components/event-list/event-list.component
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    GuestListNavbarComponent,
     SearchbarComponent,
     GuestsTableComponent,
     LettersCardComponent,

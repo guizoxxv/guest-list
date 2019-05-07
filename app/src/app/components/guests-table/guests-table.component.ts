@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
-import { GuestService } from '../../services/guest.service';
+import { ApiService } from '../../services/api.service';
 import { GuestsTableSet, GuestsTableFilter } from '../../actions/guests-table.action';
 
 @Component({
@@ -16,7 +16,7 @@ export class GuestsTableComponent implements OnInit {
   guestsDataSource$: Observable<Object>;
   guestsFilter$: Observable<string>;
 
-  constructor(private store: Store<AppState>, private guestService: GuestService) {
+  constructor(private store: Store<AppState>, private apiService: ApiService) {
     store.select('guestsTable').subscribe(state => {
       this.guestsDataSource$ = state.guestsDataSource;
       this.guestsFilter$ = state.filter;
@@ -24,16 +24,16 @@ export class GuestsTableComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.guestService.getGuests()
+    this.apiService.getGuests()
       .subscribe((res) => {
         this.store.dispatch(new GuestsTableSet(res));
       });
   }
 
   updateGuestPresent(guest) {
-    this.guestService.updateGuestPresent(guest)
+    this.apiService.updateGuestPresent(guest)
       .subscribe(res => {
-        this.guestService.getGuests()
+        this.apiService.getGuests()
           .subscribe((res) => {
             this.store.dispatch(new GuestsTableSet(res));
             this.store.dispatch(new GuestsTableFilter(String(this.guestsFilter$)));

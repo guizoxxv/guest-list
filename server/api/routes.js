@@ -3,12 +3,12 @@ var latinize = require('latinize');
 
 const express = require('express');
 const router = express.Router();
-const GuestsController = require('../controllers/guests');
+const GuestsController = require('./controllers/guests');
 
 router.get('/faker', (req, res, next) => {
     let guests = [];
 
-    for(let i = 0; i < 50; i++) {
+    for (let i = 0; i < 50; i++) {
         let name = faker.name.findName();
 
         guests.push({
@@ -20,7 +20,7 @@ router.get('/faker', (req, res, next) => {
 
     res.status(200).json(guests);
 });
-router.get('/:eventId', GuestsController.getGuests);
-router.put('/:eventId', GuestsController.updateGuestPresent);
+router.get('/:eventId/guests', GuestsController.getGuests);
+router.put('/:eventId/guests', GuestsController.updateGuestPresent);
 
 module.exports = router;

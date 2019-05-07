@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class GuestService {
+export class ApiService {
   private apiHost: string;
 
   constructor(private http: HttpClient) {
@@ -13,7 +13,9 @@ export class GuestService {
   }
 
   getGuests() {
-    return this.http.get(`${this.apiHost}/api/guests`);
+    // return this.http.get(`${this.apiHost}/api/guests`);
+    // TODO: EventID url parameter
+    return this.http.get(`${this.apiHost}/api/5cd1c32dc217b7d456d80e42/guests`);
   }
 
   updateGuestPresent(guest) {

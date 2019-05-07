@@ -7,11 +7,11 @@ import { LettersCardToogle } from '../../actions/letters-card.action';
 import { GuestsTableFilter } from '../../actions/guests-table.action';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-guest-list-navbar',
+  templateUrl: './guest-list-navbar.component.html',
+  styleUrls: ['./guest-list-navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class GuestListNavbarComponent implements OnInit {
 
   searchbarActive$: Observable<boolean>;
   lettersCardActive$: Observable<boolean>;
