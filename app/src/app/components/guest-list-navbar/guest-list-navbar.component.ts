@@ -37,5 +37,5 @@ export class GuestListNavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

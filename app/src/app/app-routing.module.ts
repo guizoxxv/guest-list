@@ -6,7 +6,7 @@ import { EventListComponent } from './components/event-list/event-list.component
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/guests',
+    redirectTo: '/events',
     pathMatch: 'full'
   },
   {

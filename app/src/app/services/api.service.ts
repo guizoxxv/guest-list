@@ -12,6 +12,10 @@ export class ApiService {
     this.apiHost = environment.apiHost;
   }
 
+  getEvents() {
+    return this.http.get(`${this.apiHost}/api/events`);
+  }
+
   getGuests() {
     // return this.http.get(`${this.apiHost}/api/guests`);
     // TODO: EventID url parameter

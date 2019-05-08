@@ -17,13 +17,16 @@ import { GuestListNavbarComponent } from './components/guest-list-navbar/guest-l
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { GuestsTableComponent } from './components/guests-table/guests-table.component';
 import { LettersCardComponent } from './components/letters-card/letters-card.component';
+import { EventsTableComponent } from './components/events-table/events-table.component';
 import { GuestsCounterComponent } from './components/guests-counter/guests-counter.component';
 
 import { GuestsTableReducer } from './reducers/guests-table.reducer';
+import { EventsTableReducer } from './reducers/events-table.reducer';
 import { SearchbarReducer } from './reducers/searchbar.reducer';
 import { LettersCardReducer } from './reducers/letters-card.reducer';
 import { GuestListComponent } from './components/guest-list/guest-list.component';
 import { EventListComponent } from './components/event-list/event-list.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { EventListComponent } from './components/event-list/event-list.component
     LettersCardComponent,
     GuestsCounterComponent,
     GuestListComponent,
-    EventListComponent
+    EventListComponent,
+    NavbarComponent,
+    EventsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,8 @@ import { EventListComponent } from './components/event-list/event-list.component
     StoreModule.forRoot({
       searchbar: SearchbarReducer,
       guestsTable: GuestsTableReducer,
-      lettersCard: LettersCardReducer,
+      eventsTable: EventsTableReducer,
+      lettersCard: LettersCardReducer
     }),
   ],
   providers: [],

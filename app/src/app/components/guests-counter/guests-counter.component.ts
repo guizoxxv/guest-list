@@ -9,6 +9,7 @@ import { AppState } from '../../app.state';
   styleUrls: ['./guests-counter.component.scss']
 })
 export class GuestsCounterComponent implements OnInit {
+  
   guestsCount$: Observable<number>;
   guestsPresentCount$: Observable<number>;
 

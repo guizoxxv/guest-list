@@ -11,6 +11,7 @@ import { GuestsTableSet, GuestsTableFilter } from '../../actions/guests-table.ac
   styleUrls: ['./guests-table.component.scss']
 })
 export class GuestsTableComponent implements OnInit {
+
   searchBarActive: boolean = false;
   displayedColumns: string[] = ['name', 'present'];
   guestsDataSource$: Observable<Object>;
@@ -40,4 +41,5 @@ export class GuestsTableComponent implements OnInit {
           });
       });
   }
+  
 }

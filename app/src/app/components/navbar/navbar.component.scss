@@ -1,0 +1,19 @@
+$yellow: #FFED4A;
+
+.spacer {
+    flex: 1 1 auto;
+}
+.material-icons {
+    font-size: 30px;
+}
+button {
+    color: $yellow;
+    border-color: $yellow !important;
+    &:hover {
+        background-color: $yellow;
+        color: black;
+    }
+}
+button + button {
+    margin-left: 0.5rem;
+}

@@ -10,6 +10,7 @@ import { GuestsTableFilter } from '../../actions/guests-table.action';
   styleUrls: ['./letters-card.component.scss']
 })
 export class LettersCardComponent implements OnInit {
+  
   letters = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
   searchbarActive$: Observable<boolean>;
   lettersCardActive$: Observable<boolean>;
