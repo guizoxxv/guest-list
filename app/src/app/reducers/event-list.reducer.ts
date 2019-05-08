@@ -1,10 +1,13 @@
-import { ActionTypes } from '../actions/events-table.action';
+import { ActionTypes } from '../actions/event-list.action';
 import { Event } from '../models/event.model';
 import { MatTableDataSource } from '@angular/material';
 
-export function EventsTableReducer(state = { eventsDataSource: null, filter: '' }, action) {
+export function EventListReducer(state = {
+    eventsDataSource: null,
+    eventsFilter: ''
+}, action) {
     switch (action.type) {
-        case ActionTypes.EventsTableSet:
+        case ActionTypes.EventsSet:
             let dataSource = new MatTableDataSource(action.payload);
             
             dataSource.filterPredicate = function (data: Event, filter: string): boolean {
@@ -15,12 +18,12 @@ export function EventsTableReducer(state = { eventsDataSource: null, filter: '' 
                 ...state,
                 eventsDataSource: dataSource,
             };
-        case ActionTypes.EventsTableFilter:
+        case ActionTypes.EventsFilter:
             state.eventsDataSource.filter = action.payload;
 
             return {
                 ...state,
-                filter: action.payload,
+                eventsFilter: action.payload,
             };
         default:
             return state;

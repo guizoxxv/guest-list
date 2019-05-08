@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
 import { ApiService } from '../../services/api.service';
-import { EventsTableSet, EventsTableFilter } from '../../actions/events-table.action';
+import { EventsSet, EventsFilter } from '../../actions/event-list.action';
 
 @Component({
   selector: 'app-events-table',
@@ -17,16 +17,16 @@ export class EventsTableComponent implements OnInit {
   eventsFilter$: Observable<string>;
 
   constructor(private store: Store<AppState>, private apiService: ApiService) {
-    store.select('eventsTable').subscribe(state => {
+    store.select('eventList').subscribe(state => {
       this.eventsDataSource$ = state.eventsDataSource;
-      this.eventsFilter$ = state.filter;
+      this.eventsFilter$ = state.eventsFilter;
     });
   }
 
   ngOnInit() {
     this.apiService.getEvents()
       .subscribe((res) => {
-        this.store.dispatch(new EventsTableSet(res));
+        this.store.dispatch(new EventsSet(res));
       });
   }
 

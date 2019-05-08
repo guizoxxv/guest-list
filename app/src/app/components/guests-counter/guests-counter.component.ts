@@ -14,7 +14,7 @@ export class GuestsCounterComponent implements OnInit {
   guestsPresentCount$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    store.select('guestsTable').subscribe(state => {
+    store.select('guestList').subscribe(state => {
       this.guestsCount$ = state.guestsCount;
       this.guestsPresentCount$ = state.guestsPresentCount;
     });

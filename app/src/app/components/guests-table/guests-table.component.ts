@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
 import { ApiService } from '../../services/api.service';
-import { GuestsTableSet, GuestsTableFilter } from '../../actions/guests-table.action';
+import { GuestsSet, GuestsFilter } from '../../actions/guest-list.action';
 
 @Component({
   selector: 'app-guests-table',
@@ -21,9 +21,9 @@ export class GuestsTableComponent implements OnInit {
   eventName: string = '';
 
   constructor(private route: ActivatedRoute, private store: Store<AppState>, private apiService: ApiService) {
-    store.select('guestsTable').subscribe(state => {
+    store.select('guestList').subscribe(state => {
       this.guestsDataSource$ = state.guestsDataSource;
-      this.guestsFilter$ = state.filter;
+      this.guestsFilter$ = state.guestsFilter;
     });
   }
 
@@ -33,7 +33,7 @@ export class GuestsTableComponent implements OnInit {
       .subscribe(res => {
         this.eventName = res['name'];
         
-        this.store.dispatch(new GuestsTableSet(res['guests']));
+        this.store.dispatch(new GuestsSet(res['guests']));
       });
   }
 
@@ -42,8 +42,8 @@ export class GuestsTableComponent implements OnInit {
       .subscribe(res => {
         this.apiService.getGuests(this.eventId)
           .subscribe(res => {
-            this.store.dispatch(new GuestsTableSet(res));
-            this.store.dispatch(new GuestsTableFilter(String(this.guestsFilter$)));
+            this.store.dispatch(new GuestsSet(res));
+            this.store.dispatch(new GuestsFilter(String(this.guestsFilter$)));
           });
       });
   }

@@ -4,4 +4,7 @@ export interface AppState {
     readonly guestsDataSource: Object;
     readonly eventsDataSource: Object;
     readonly guestsFilter: string;
+    readonly eventsFilter: string;
+    readonly guestsCount: number;
+    readonly guestsPresentCount: number;
 }

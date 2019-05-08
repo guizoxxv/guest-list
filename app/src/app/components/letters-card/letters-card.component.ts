@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
-import { GuestsTableFilter } from '../../actions/guests-table.action';
+import { GuestsFilter } from '../../actions/guest-list.action';
 
 @Component({
   selector: 'app-letters-card',
@@ -17,14 +17,10 @@ export class LettersCardComponent implements OnInit {
   guestsFilter$: Observable<string>;
   
   constructor(private store: Store<AppState>) {
-    store.select('searchbar').subscribe(state => {
-      this.searchbarActive$ = state;
-    });
-    store.select('lettersCard').subscribe(state => {
-      this.lettersCardActive$ = state;
-    });
-    store.select('guestsTable').subscribe(state => {
-      this.guestsFilter$ = state.filter;
+    store.select('guestList').subscribe(state => {
+      this.searchbarActive$ = state.searchbarActive;
+      this.lettersCardActive$ = state.lettersCardActive;
+      this.guestsFilter$ = state.guestsFilter;
     });
   }
   
@@ -34,9 +30,9 @@ export class LettersCardComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     if (String(this.guestsFilter$) == filterValue) {
-      this.store.dispatch(new GuestsTableFilter(''));
+      this.store.dispatch(new GuestsFilter(''));
     } else {
-      this.store.dispatch(new GuestsTableFilter(filterValue));
+      this.store.dispatch(new GuestsFilter(filterValue));
     }
   }
 

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
-import { SearchbarToogle } from '../../actions/searchbar.action';
-import { GuestsTableFilter } from '../../actions/guests-table.action';
+import { GuestsFilter, SearchbarToogle } from '../../actions/guest-list.action';
 
 @Component({
   selector: 'app-searchbar',
@@ -17,12 +16,10 @@ export class SearchbarComponent implements OnInit {
   guestsFilter$: Observable<string>;
 
   constructor(private store: Store<AppState>) {
-    store.select('searchbar').subscribe(state => {
-      this.searchbarActive$ = state;
-    });
-    store.select('guestsTable').subscribe(state => {
+    store.select('guestList').subscribe(state => {
+      this.searchbarActive$ = state.searchbarActive;
       this.guestsDataSource$ = state.guestsDataSource;
-      this.guestsFilter$ = state.filter;
+      this.guestsFilter$ = state.guestsFilter;
     });
   }
 
@@ -32,7 +29,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   applyFilter(filterValue: string) {
-    this.store.dispatch(new GuestsTableFilter(filterValue));
+    this.store.dispatch(new GuestsFilter(filterValue));
   }
 
   ngOnInit() {}

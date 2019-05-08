@@ -20,10 +20,8 @@ import { LettersCardComponent } from './components/letters-card/letters-card.com
 import { EventsTableComponent } from './components/events-table/events-table.component';
 import { GuestsCounterComponent } from './components/guests-counter/guests-counter.component';
 
-import { GuestsTableReducer } from './reducers/guests-table.reducer';
-import { EventsTableReducer } from './reducers/events-table.reducer';
-import { SearchbarReducer } from './reducers/searchbar.reducer';
-import { LettersCardReducer } from './reducers/letters-card.reducer';
+import { GuestListReducer } from './reducers/guest-list.reducer';
+import { EventListReducer } from './reducers/event-list.reducer';
 import { GuestListComponent } from './components/guest-list/guest-list.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -53,10 +51,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatSlideToggleModule,
     MatButtonModule,
     StoreModule.forRoot({
-      searchbar: SearchbarReducer,
-      guestsTable: GuestsTableReducer,
-      eventsTable: EventsTableReducer,
-      lettersCard: LettersCardReducer
+      guestList: GuestListReducer,
+      eventList: EventListReducer,
     }),
   ],
   providers: [],

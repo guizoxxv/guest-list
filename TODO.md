@@ -5,3 +5,6 @@
 * Upload de planilha
 * Efeitos
 * events column authorized_users
+* event date
+* routerLink url no rotapé do browser
+* EventName store
