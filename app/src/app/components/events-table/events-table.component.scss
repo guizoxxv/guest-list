@@ -1,0 +1,25 @@
+.mat-row:hover {
+  background-color: #b4b4b433;
+}
+.mat-header-cell.text-center {
+  text-align: center;
+}
+.view-btn {
+  transition: 0.3s;
+  &:hover {
+    color: #3490DC;
+  }
+}
+.edit-btn {
+  transition: 0.3s;
+  margin: 0 0.5rem;
+  &:hover {
+    color: #38C172;
+  }
+}
+.delete-btn {
+  transition: 0.3s;
+  &:hover {
+    color: #E3342F;
+  }
+}

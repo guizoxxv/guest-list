@@ -12,7 +12,7 @@ import { EventsTableSet, EventsTableFilter } from '../../actions/events-table.ac
 })
 export class EventsTableComponent implements OnInit {
 
-  displayedColumns: string[] = ['name'];
+  displayedColumns: string[] = ['name', 'actions'];
   eventsDataSource$: Observable<Object>;
   eventsFilter$: Observable<string>;
 

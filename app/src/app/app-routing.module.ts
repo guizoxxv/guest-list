@@ -14,7 +14,7 @@ const routes: Routes = [
     component: EventListComponent
   },
   {
-    path: 'guests',
+    path: 'events/:eventId/guests',
     component: GuestListComponent
   }
 ];

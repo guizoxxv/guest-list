@@ -16,10 +16,12 @@ export class ApiService {
     return this.http.get(`${this.apiHost}/api/events`);
   }
 
-  getGuests() {
-    // return this.http.get(`${this.apiHost}/api/guests`);
-    // TODO: EventID url parameter
-    return this.http.get(`${this.apiHost}/api/5cd1c32dc217b7d456d80e42/guests`);
+  getEvent(eventId) {
+    return this.http.get(`${this.apiHost}/api/events/${eventId}`);
+  }
+
+  getGuests(eventId) {
+    return this.http.get(`${this.apiHost}/api/${eventId}/guests`);
   }
 
   updateGuestPresent(guest) {

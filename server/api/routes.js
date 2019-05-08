@@ -23,6 +23,7 @@ router.get('/faker', (req, res, next) => {
 });
 
 router.get('/events', EventsController.getEvents);
+router.get('/events/:eventId', EventsController.getEvent);
 router.get('/:eventId/guests', GuestsController.getGuests);
 router.put('/:eventId/guests', GuestsController.updateGuestPresent);
 

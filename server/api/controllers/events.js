@@ -14,3 +14,26 @@ exports.getEvents = (req, res, next) => {
             });
         });
 }
+
+exports.getEvent = (req, res, next) => {
+    let name;
+
+    Event.findById(req.params.eventId)
+        .then(doc => {
+            name = doc.name;
+
+            return doc.guests.sort();
+        })
+        .then(docs => {
+            res.status(200).json({
+                name: name,
+                guests: docs,
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: 'An error occurred',
+                error: err,
+            });
+        });
+}

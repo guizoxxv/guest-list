@@ -13,6 +13,7 @@ import { GuestsTableFilter } from '../../actions/guests-table.action';
 })
 export class GuestListNavbarComponent implements OnInit {
 
+  eventName$: Observable<string>;
   searchbarActive$: Observable<boolean>;
   lettersCardActive$: Observable<boolean>;
 

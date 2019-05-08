@@ -2,7 +2,7 @@ const Event = require('../models/event').model;
 const Guest = require('../models/guest').model;
 
 exports.getGuests = (req, res, next) => {
-    Event.findOne({ _id: req.body._id ? req.body._id : '5cd1c32dc217b7d456d80e42' })
+    Event.findById(req.params.eventId)
         .then(doc => {
             return doc.guests.sort();
         })
