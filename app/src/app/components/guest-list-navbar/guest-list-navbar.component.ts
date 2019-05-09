@@ -17,6 +17,7 @@ export class GuestListNavbarComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     store.select('guestList').subscribe(state => {
+      this.eventName$ = state.eventName;
       this.searchbarActive$ = state.searchbarActive;
       this.lettersCardActive$ = state.lettersCardActive;
     });

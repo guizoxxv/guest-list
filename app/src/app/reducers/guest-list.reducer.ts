@@ -3,6 +3,7 @@ import { Guest } from '../models/guest.model';
 import { MatTableDataSource } from '@angular/material';
 
 export function GuestListReducer(state = {
+    eventName: null,
     guestsDataSource: null,
     guestsFilter: '',
     guestsCount: 0,
@@ -44,6 +45,11 @@ export function GuestListReducer(state = {
             return {
                 ...state,
                 searchbarActive: !state.searchbarActive,
+            };
+        case ActionTypes.EventNameSet:
+            return {
+                ...state,
+                eventName: action.payload,
             };
         default:
             return state;

@@ -6,6 +6,7 @@ export enum ActionTypes {
     GuestsFilter = 'GuestsFilter',
     LettersCardToogle = 'LettersCardToogle',
     SearchbarToogle = 'SearchbarToogle',
+    EventNameSet = 'EventNameSet',
 }
 
 export class GuestsSet implements Action {
@@ -27,4 +28,10 @@ export class LettersCardToogle implements Action {
 
 export class SearchbarToogle implements Action {
     readonly type = ActionTypes.SearchbarToogle;
+}
+
+export class EventNameSet implements Action {
+    readonly type = ActionTypes.EventNameSet;
+
+    constructor(public payload: string) { }
 }

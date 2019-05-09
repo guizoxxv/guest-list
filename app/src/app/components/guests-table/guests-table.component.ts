@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../app.state';
 import { ApiService } from '../../services/api.service';
-import { GuestsSet, GuestsFilter } from '../../actions/guest-list.action';
+import { GuestsSet, GuestsFilter, EventNameSet } from '../../actions/guest-list.action';
 
 @Component({
   selector: 'app-guests-table',
@@ -17,8 +17,8 @@ export class GuestsTableComponent implements OnInit {
   displayedColumns: string[] = ['name', 'present'];
   guestsDataSource$: Observable<Object>;
   guestsFilter$: Observable<string>;
+  eventName$: Observable<string>;
   eventId: string = ''; // TODO: ObjectId type
-  eventName: string = '';
 
   constructor(private route: ActivatedRoute, private store: Store<AppState>, private apiService: ApiService) {
     store.select('guestList').subscribe(state => {
@@ -31,8 +31,7 @@ export class GuestsTableComponent implements OnInit {
     this.eventId = this.route.snapshot.paramMap.get('eventId');
     this.apiService.getEvent(this.eventId)
       .subscribe(res => {
-        this.eventName = res['name'];
-        
+        this.store.dispatch(new EventNameSet(res['name']));
         this.store.dispatch(new GuestsSet(res['guests']));
       });
   }

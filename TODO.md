@@ -7,4 +7,5 @@
 * events column authorized_users
 * event date
 * routerLink url no rotapé do browser
-* EventName store
+* Subscribe to store in guest-list.component.ts and event-list.component.ts
+* api route to individual event on events list
