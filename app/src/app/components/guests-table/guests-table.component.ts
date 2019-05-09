@@ -13,11 +13,9 @@ import { GuestsSet, GuestsFilter, EventNameSet } from '../../actions/guest-list.
 })
 export class GuestsTableComponent implements OnInit {
 
-  searchBarActive: boolean = false;
   displayedColumns: string[] = ['name', 'present'];
   guestsDataSource$: Observable<Object>;
   guestsFilter$: Observable<string>;
-  eventName$: Observable<string>;
   eventId: string = ''; // TODO: ObjectId type
 
   constructor(private route: ActivatedRoute, private store: Store<AppState>, private apiService: ApiService) {
@@ -29,19 +27,14 @@ export class GuestsTableComponent implements OnInit {
 
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('eventId');
-    this.apiService.getEvent(this.eventId)
-      .subscribe(res => {
-        this.store.dispatch(new EventNameSet(res['name']));
-        this.store.dispatch(new GuestsSet(res['guests']));
-      });
   }
 
   updateGuestPresent(guest) {
-    this.apiService.updateGuestPresent(guest)
+    this.apiService.updateGuestPresent(this.eventId, guest)
       .subscribe(res => {
-        this.apiService.getGuests(this.eventId)
+        this.apiService.getEvent(this.eventId)
           .subscribe(res => {
-            this.store.dispatch(new GuestsSet(res));
+            this.store.dispatch(new GuestsSet(res['guests']));
             this.store.dispatch(new GuestsFilter(String(this.guestsFilter$)));
           });
       });
