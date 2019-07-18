@@ -1,9 +1,9 @@
 <mat-toolbar color="primary" *ngIf="!(searchbarActive$)">
-  <a routerLink="/events" class="flex item-center justify-center no-underline text-white mr-3 hover:text-yellow">
+  <a routerLink="/events" class="flex item-center justify-center no-underline text-white mr-3 hover:text-yellow-500">
     <i class="material-icons">arrow_back</i>
   </a>
   <span>{{ eventName$ }}</span>
   <span class="spacer"></span>
-  <span class="cursor-pointer hover:text-yellow-light mr-5" (click)="toogleLettersCard()" [class.text-yellow-dark]="lettersCardActive$">A - Z</span>
-  <i class="material-icons cursor-pointer hover:text-yellow-light" (click)="toogleSearchbar()">search</i>
+  <span class="cursor-pointer hover:text-yellow-400 mr-5" (click)="toogleLettersCard()" [class.text-yellow-dark]="lettersCardActive$">A - Z</span>
+  <i class="material-icons cursor-pointer hover:text-yellow-400" (click)="toogleSearchbar()">search</i>
 </mat-toolbar>

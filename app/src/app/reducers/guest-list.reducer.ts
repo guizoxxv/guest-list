@@ -34,7 +34,7 @@ export function GuestListReducer(state = {
 
             return {
                 ...state,
-                filter: action.payload,
+                guestsFilter: action.payload,
             };
         case ActionTypes.LettersCardToogle:
             return {

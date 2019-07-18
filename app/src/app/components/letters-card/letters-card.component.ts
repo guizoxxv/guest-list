@@ -38,10 +38,10 @@ export class LettersCardComponent implements OnInit {
 
   letterClasses(letter) {
     if (String(this.guestsFilter$) == letter) {
-      return 'bg-grey-dark';
+      return 'bg-gray-600';
     }
 
-    return 'bg-grey-light';
+    return 'bg-gray-400';
   }
 
 }
