@@ -6,7 +6,7 @@ const router = express.Router();
 const GuestsController = require('./controllers/guests');
 const EventsController = require('./controllers/events');
 
-router.get('/faker', (req, res, next) => {
+router.get('/faker', (req, res) => {
     let guests = [];
 
     for (let i = 0; i < 50; i++) {
@@ -22,8 +22,11 @@ router.get('/faker', (req, res, next) => {
     res.status(200).json(guests);
 });
 
-router.get('/events', EventsController.getEvents);
-router.get('/events/:eventId', EventsController.getEvent);
-router.put('/events/:eventId/update-guest-present', GuestsController.updateGuestPresent);
+router.get('/events', EventsController.getAll);
+router.post('/events', EventsController.create);
+router.delete('/events', EventsController.delete);
+router.put('/events', EventsController.update);
+router.get('/events/:eventId', EventsController.get);
+router.put('/events/:eventId/update-guest-present', GuestsController.updatePresence);
 
 module.exports = router;

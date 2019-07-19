@@ -1,6 +1,6 @@
 const Event = require('../models/event').model;
 
-exports.updateGuestPresent = (req, res, next) => {
+exports.updatePresence = (req, res, next) => {
     Event.findById(req.params.eventId)
         .then(doc => {
             let guest = doc.guests.id(req.body._id);
@@ -10,7 +10,7 @@ exports.updateGuestPresent = (req, res, next) => {
             doc.save();
 
             res.status(200).json({
-                message: 'Guest presence updated',
+                message: 'Guest presence updated.',
                 guest: guest
             });
         });
