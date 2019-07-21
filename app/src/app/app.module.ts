@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { GuestListNavbarComponent } from './components/guest-list-navbar/guest-list-navbar.component';
@@ -19,12 +20,13 @@ import { GuestsTableComponent } from './components/guests-table/guests-table.com
 import { LettersCardComponent } from './components/letters-card/letters-card.component';
 import { EventsTableComponent } from './components/events-table/events-table.component';
 import { GuestsCounterComponent } from './components/guests-counter/guests-counter.component';
-
-import { GuestListReducer } from './reducers/guest-list.reducer';
-import { EventListReducer } from './reducers/event-list.reducer';
 import { GuestListComponent } from './components/guest-list/guest-list.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DeleteEventDialog } from './components/dialogs/delete-event.component';
+
+import { GuestListReducer } from './reducers/guest-list.reducer';
+import { EventListReducer } from './reducers/event-list.reducer';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     GuestListComponent,
     EventListComponent,
     NavbarComponent,
-    EventsTableComponent
+    EventsTableComponent,
+    DeleteEventDialog,
   ],
   imports: [
     BrowserModule,
@@ -50,10 +53,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatTableModule,
     MatSlideToggleModule,
     MatButtonModule,
+    MatDialogModule,
     StoreModule.forRoot({
       guestList: GuestListReducer,
       eventList: EventListReducer,
     }),
+  ],
+  entryComponents: [
+    DeleteEventDialog
   ],
   providers: [],
   bootstrap: [AppComponent]
