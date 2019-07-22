@@ -59,7 +59,7 @@ exports.create = (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    Event.findByIdAndRemove(req.body.id)
+    Event.findByIdAndRemove(req.params.eventId)
         .then(event => {
             if(event) {
                 res.status(200).json({

@@ -1,8 +1,7 @@
-<h1 mat-dialog-title>Hi</h1>
 <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
+    <p>Corfirm event <b>{{ data.eventName }}</b> deletion?</p>
 </div>
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+<div mat-dialog-actions class="mt-3 flex items-center justify-between">
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button color="warn" (click)="confirmDeletion(data.eventId)">Delete</button>
 </div>

@@ -16,9 +16,11 @@ export class GuestListComponent implements OnInit {
   eventName$: Observable<string>;
   eventId: string = ''; // TODO: ObjectId type
 
-  constructor(private route: ActivatedRoute, private store: Store<AppState>, private apiService: ApiService) {
-    //
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<AppState>,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
     this.eventId = this.route.snapshot.paramMap.get('eventId');

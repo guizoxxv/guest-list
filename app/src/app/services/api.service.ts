@@ -21,6 +21,10 @@ export class ApiService {
   }
 
   updateGuestPresent(eventId, guest) {
-    return this.http.put(`${this.apiHost}/api/events/${eventId}/update-guest-present`, guest);
+    return this.http.put(`${this.apiHost}/api/events/${eventId}/update-guest-presence`, guest);
+  }
+
+  deleteEvent(eventId) {
+    return this.http.delete(`${this.apiHost}/api/events/${eventId}/delete`);
   }
 }

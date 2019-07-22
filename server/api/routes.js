@@ -24,9 +24,9 @@ router.get('/faker', (req, res) => {
 
 router.get('/events', EventsController.getAll);
 router.post('/events', EventsController.create);
-router.delete('/events', EventsController.delete);
+router.delete('/events/:eventId/delete', EventsController.delete);
 router.put('/events', EventsController.update);
 router.get('/events/:eventId', EventsController.get);
-router.put('/events/:eventId/update-guest-present', GuestsController.updatePresence);
+router.put('/events/:eventId/update-guest-presence', GuestsController.updatePresence);
 
 module.exports = router;

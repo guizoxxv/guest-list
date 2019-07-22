@@ -5,8 +5,9 @@
 * Upload de planilha
 * Efeitos
 * events column authorized_users
-* event date
+* event start / end columns
 * routerLink url no rotapé do browser
 * api route to individual event on events list
 * update faker seeder
-* update subdocument
+* events filter
+* event creator / operator role. operator can't add new guests

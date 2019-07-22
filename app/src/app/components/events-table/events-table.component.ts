@@ -32,9 +32,13 @@ export class EventsTableComponent implements OnInit {
       });
   }
 
-  openDeleteEventDialog(): void {
+  openDeleteEventDialog(event): void {
     this.dialog.open(DeleteEventDialog, {
-      width: '250px',
+      width: '300px',
+      data: {
+        eventId: event._id,
+        eventName: event.name,
+      }
     });
   }
 
