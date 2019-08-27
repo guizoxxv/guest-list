@@ -22,11 +22,15 @@ router.get('/faker', (req, res) => {
     res.status(200).json(guests);
 });
 
+// Events
 router.get('/events', EventsController.getAll);
 router.post('/events', EventsController.create);
 router.delete('/events/:eventId/delete', EventsController.delete);
 router.put('/events', EventsController.update);
 router.get('/events/:eventId', EventsController.get);
 router.put('/events/:eventId/update-guest-presence', GuestsController.updatePresence);
+
+// Guests
+// router.post('/events/:eventId/guests/create', GuestsController.create);
 
 module.exports = router;
