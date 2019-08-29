@@ -1,4 +1,21 @@
 <app-navbar></app-navbar>
 <div class="container mx-auto m-5">
-  <h1>Event Create</h1>
+  <mat-card>
+    <form [formGroup]="createEventForm" (ngSubmit)="onSubmit()">
+      <h2 class="my-3 font-bold underline">Create Event</h2>
+      <mat-form-field class="w-full">
+        <input matInput placeholder="Name" type="text" formControlName="name">
+        <mat-error *ngIf="createEventForm.get('name').errors?.required">
+          Path `name` is required.
+        </mat-error>
+        <!-- Server-side validation -->
+        <mat-error *ngIf="createEventForm.get('name').errors?.serverError">
+          {{ createEventForm.get('name').errors?.serverError }}
+        </mat-error>
+      </mat-form-field>
+      <div class="w-full text-right">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!createEventForm.valid">Create</button>
+      </div>
+    </form>
+  </mat-card>
 </div>

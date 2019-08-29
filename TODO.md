@@ -11,3 +11,4 @@
 * update faker seeder
 * events filter
 * event creator / operator role. operator can't add new guests
+* Events list - creation date, event date, number of guests columns

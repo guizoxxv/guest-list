@@ -16,15 +16,19 @@ export class ApiService {
     return this.http.get(`${this.apiHost}/api/events`);
   }
 
-  getEvent(eventId) {
+  getEvent(eventId: string) {
     return this.http.get(`${this.apiHost}/api/events/${eventId}`);
   }
 
-  updateGuestPresent(eventId, guest) {
+  createEvent(event) {
+    return this.http.post(`${this.apiHost}/api/events`, event);
+  }
+
+  updateGuestPresent(eventId: string, guest) {
     return this.http.put(`${this.apiHost}/api/events/${eventId}/update-guest-presence`, guest);
   }
 
-  deleteEvent(eventId) {
+  deleteEvent(eventId: string) {
     return this.http.delete(`${this.apiHost}/api/events/${eventId}/delete`);
   }
 }

@@ -51,6 +51,10 @@ exports.create = (req, res) => {
             });
         })
         .catch(err => {
+            if (err.name === "ValidationError") {
+                res.status(422).json(err);
+            }
+
             res.status(500).json({
                 message: 'An error occurred.',
                 error: err,

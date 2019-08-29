@@ -4,14 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { AppComponent } from './app.component';
 import { GuestListNavbarComponent } from './components/guest-list-navbar/guest-list-navbar.component';
@@ -51,11 +53,13 @@ import { EventCreateComponent } from './components/event-create/event-create.com
     HttpClientModule,
     MatCardModule,
     MatToolbarModule,
-    MatInputModule,
     MatTableModule,
     MatSlideToggleModule,
     MatButtonModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
     StoreModule.forRoot({
       guestList: GuestListReducer,
       eventList: EventListReducer,
