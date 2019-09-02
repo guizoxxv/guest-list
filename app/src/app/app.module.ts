@@ -31,6 +31,7 @@ import { DeleteEventDialog } from './components/dialogs/delete-event.component';
 import { GuestListReducer } from './reducers/guest-list.reducer';
 import { EventListReducer } from './reducers/event-list.reducer';
 import { AppReducer } from './reducers/app.reducer';
+import { FlashMessageComponent } from './components/flash-message/flash-message.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AppReducer } from './reducers/app.reducer';
     EventsTableComponent,
     DeleteEventDialog,
     EventCreateComponent,
+    FlashMessageComponent,
   ],
   imports: [
     BrowserModule,

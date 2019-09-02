@@ -1,0 +1,16 @@
+.flash-card {
+    font-weight: bold !important;
+    text-align: center !important;
+    &-success {
+        background-color: #68d391 !important;
+        color: #2f855a !important;
+    }
+    &-error {
+        background-color: #fc8181 !important;
+        color: #c53030 !important;
+    }
+    &-warn {
+        background-color: #f6e05e !important;
+        color: #b7791f !important;
+    }
+}

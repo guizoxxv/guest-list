@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from 'src/app/app.state';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { RemoveFlashMessage } from '../../actions/app.action';
 import { FlashMessageInterface } from '../../interfaces/flahMessage.interface';
+import { AppState } from '../../app.state';
+import { Store } from '@ngrx/store';
 
 @Component({
-  selector: 'app-event-list',
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss']
+  selector: 'app-flash-message',
+  templateUrl: './flash-message.component.html',
+  styleUrls: ['./flash-message.component.scss']
 })
-export class EventListComponent implements OnInit {
+export class FlashMessageComponent implements OnInit {
 
   flashMessage$: Observable<FlashMessageInterface>;
 
@@ -21,13 +20,14 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.flashMessage$) {
-      let store = this.store;
+  }
 
-      setTimeout(function () {
-        store.dispatch(new RemoveFlashMessage());
-      }, 5000);
+  flashMessageClasses() {
+    if(this.flashMessage$) {
+      return `flash-card flash-card-${this.flashMessage$['type']}`;
     }
+
+    return '';
   }
 
 }

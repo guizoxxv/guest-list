@@ -6,6 +6,7 @@ import { ApiService } from '../../services/api.service';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import { EventsSet } from '../../actions/event-list.action';
+import { FlashMessage, RemoveFlashMessage } from '../../actions/app.action';
 
 @Component({
     selector: 'app-delete-event-dialog',
@@ -25,14 +26,23 @@ export class DeleteEventDialog {
     }
 
     confirmDeletion(eventId: string): void {
+        let store = this.store;
+
         this.apiService.deleteEvent(eventId).subscribe(res => {
             this.apiService.getEvents()
                 .subscribe(res => {
-                    this.store.dispatch(new EventsSet(res));
+                    store.dispatch(new EventsSet(res));
+
+                    store.dispatch(new FlashMessage({
+                        type: 'success',
+                        text: 'Event deleted.'
+                    }));
+
+                    setTimeout(function () {
+                        store.dispatch(new RemoveFlashMessage());
+                    }, 5000);
                 });
         });
-
-        // TODO: Alter feedback message state
 
         this.dialogRef.close();
     }

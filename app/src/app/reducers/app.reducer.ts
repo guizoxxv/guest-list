@@ -9,6 +9,11 @@ export function AppReducer(state = {
                 ...state,
                 flashMessage: action.payload,
             };
+        case ActionTypes.RemoveFlashMessage:
+            return {
+                ...state,
+                flashMessage: null,
+            };
         default:
             return state;
     }

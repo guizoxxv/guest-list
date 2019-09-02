@@ -5,8 +5,8 @@ import { Router } from "@angular/router"
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import { Observable } from 'rxjs';
-import { FlashMessageInterface } from 'src/app/interfaces/flahMessage.interface';
-import { FlashMessage } from 'src/app/actions/app.action';
+import { FlashMessageInterface } from '../../interfaces/flahMessage.interface';
+import { FlashMessage } from '../../actions/app.action';
 
 @Component({
   selector: 'app-event-create',

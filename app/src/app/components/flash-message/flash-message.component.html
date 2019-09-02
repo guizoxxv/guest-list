@@ -1,0 +1,3 @@
+<mat-card [ngClass]="flashMessageClasses()" *ngIf="flashMessage$">
+  {{ flashMessage$ && flashMessage$.text }}
+</mat-card>
