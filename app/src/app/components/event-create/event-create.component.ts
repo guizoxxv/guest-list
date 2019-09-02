@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
+import { Router } from "@angular/router"
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { Observable } from 'rxjs';
+import { FlashMessageInterface } from 'src/app/interfaces/flahMessage.interface';
+import { FlashMessage } from 'src/app/actions/app.action';
 
 @Component({
   selector: 'app-event-create',
@@ -9,14 +15,22 @@ import { ApiService } from '../../services/api.service';
 })
 export class EventCreateComponent implements OnInit {
 
+  flashMessage$: Observable<FlashMessageInterface>;
+
   createEventForm = this.fb.group({
     name: ['', Validators.required],
   });
 
   constructor(
+    private store: Store<AppState>,
     private fb: FormBuilder,
     private apiService: ApiService,
-  ) { }
+    private router: Router,
+  ) {
+    store.select('app').subscribe(state => {
+      this.flashMessage$ = state.flashMessage;
+    });
+  }
 
   ngOnInit() {
   }
@@ -24,8 +38,12 @@ export class EventCreateComponent implements OnInit {
   onSubmit() {
     this.apiService.createEvent(this.createEventForm.value)
       .subscribe(res => {
-        // console.log(res);
-        // TODO: Redirect with success flash message
+        this.store.dispatch(new FlashMessage({
+          type: 'success',
+          text: 'Event created.'
+        }));
+        
+        this.router.navigate(['/events']);
       }, err => {
           if (err.error.name === "ValidationError") {
             const validationErrors = err.error.errors;

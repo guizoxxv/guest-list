@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AppState } from 'src/app/app.state';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { FlashMessageInterface } from 'src/app/interfaces/flahMessage.interface';
 
 @Component({
   selector: 'app-event-list',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
-  constructor() { }
+  flashMessage$: Observable<FlashMessageInterface>;
+
+  constructor(private store: Store<AppState>) {
+    store.select('app').subscribe(state => {
+      this.flashMessage$ = state.flashMessage;
+    });
+  }
 
   ngOnInit() {
+    console.log(this.flashMessage$);
   }
 
 }

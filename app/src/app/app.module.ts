@@ -24,12 +24,13 @@ import { EventsTableComponent } from './components/events-table/events-table.com
 import { GuestsCounterComponent } from './components/guests-counter/guests-counter.component';
 import { GuestListComponent } from './components/guest-list/guest-list.component';
 import { EventListComponent } from './components/event-list/event-list.component';
+import { EventCreateComponent } from './components/event-create/event-create.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DeleteEventDialog } from './components/dialogs/delete-event.component';
 
 import { GuestListReducer } from './reducers/guest-list.reducer';
 import { EventListReducer } from './reducers/event-list.reducer';
-import { EventCreateComponent } from './components/event-create/event-create.component';
+import { AppReducer } from './reducers/app.reducer';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { EventCreateComponent } from './components/event-create/event-create.com
     MatFormFieldModule,
     MatInputModule,
     StoreModule.forRoot({
+      app: AppReducer,
       guestList: GuestListReducer,
       eventList: EventListReducer,
     }),
