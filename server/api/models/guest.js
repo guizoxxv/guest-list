@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const guestSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         required: true,
@@ -13,6 +12,7 @@ const guestSchema = mongoose.Schema({
     present: {
         type: Boolean,
         required: true,
+        default: false,
     },
 });
 

@@ -15,7 +15,7 @@ export class GuestsTableComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'present'];
   guestsDataSource$: Observable<Object>;
-  guestsPresentCount$: Observable<number>;
+  guestsCount$: Observable<number>;
   guestsFilter$: Observable<string>;
   eventId: string = ''; // TODO: ObjectId type
 
@@ -23,7 +23,7 @@ export class GuestsTableComponent implements OnInit {
     store.select('guestList').subscribe(state => {
       this.guestsDataSource$ = state.guestsDataSource;
       this.guestsFilter$ = state.guestsFilter;
-      this.guestsPresentCount$ = state.guestsPresentCount;
+      this.guestsCount$ = state.guestsCount;
     });
   }
 

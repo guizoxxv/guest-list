@@ -1,5 +1,5 @@
-var faker = require('faker');
-var latinize = require('latinize');
+const faker = require('faker');
+const formatName = require('./utils').formatName;
 
 const express = require('express');
 const router = express.Router();
@@ -14,7 +14,7 @@ router.get('/faker', (req, res) => {
 
         guests.push({
             name: name,
-            formatted_name: latinize(name).toLocaleLowerCase(),
+            formatted_name: formatName(name),
             present: faker.random.boolean(),
         });
     }
@@ -28,9 +28,9 @@ router.post('/events', EventsController.create);
 router.delete('/events/:eventId/delete', EventsController.delete);
 router.put('/events', EventsController.update);
 router.get('/events/:eventId', EventsController.get);
-router.put('/events/:eventId/update-guest-presence', GuestsController.updatePresence);
 
 // Guests
-// router.post('/events/:eventId/guests/create', GuestsController.create);
+router.put('/events/:eventId/update-guest-presence', GuestsController.updatePresence);
+router.put('/events/:eventId/update-guests', GuestsController.updateGuests);
 
 module.exports = router;

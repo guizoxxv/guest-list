@@ -1,4 +1,5 @@
 const Event = require('../models/event').model;
+const _ = require('underscore');
 
 exports.getAll = (req, res) => {
     Event.find({})
@@ -22,7 +23,7 @@ exports.get = (req, res) => {
         .then(doc => {
             name = doc.name;
 
-            return doc.guests.sort();
+            return _.sortBy(doc.guests, 'formatted_name');
         })
         .then(docs => {
             res.status(200).json({

@@ -12,4 +12,5 @@
 * events filter
 * event creator / operator role. operator can't add new guests
 * Events list - creation date, event date, number of guests columns
-* Remove FlashMessage timeout reset time if a subsequent event is triggered before later ends.
+* Remove FlashMessage timeout reset time if a subsequent event is triggered before later ends
+* Mongoose sort on subdocument. Aparently default sort is by update. Without this I needed to sort via javascript using underscore.js
