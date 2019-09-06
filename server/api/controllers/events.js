@@ -2,6 +2,7 @@ const Event = require('../models/event').model;
 const _ = require('underscore');
 
 exports.getAll = (req, res) => {
+    console.clear();
     Event.find({})
         .sort({ name: 1 })
         .select('name')

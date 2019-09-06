@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from "@angular/router"
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
-import { Observable } from 'rxjs';
-import { FlashMessageInterface } from '../../interfaces/flahMessage.interface';
 import { FlashMessage } from '../../actions/app.action';
 
 @Component({
@@ -15,24 +13,19 @@ import { FlashMessage } from '../../actions/app.action';
 })
 export class EventCreateComponent implements OnInit {
 
-  flashMessage$: Observable<FlashMessageInterface>;
-
-  createEventForm = this.fb.group({
-    name: ['', Validators.required],
-  });
+  createEventForm: FormGroup;
 
   constructor(
     private store: Store<AppState>,
     private fb: FormBuilder,
     private apiService: ApiService,
     private router: Router,
-  ) {
-    store.select('app').subscribe(state => {
-      this.flashMessage$ = state.flashMessage;
-    });
-  }
+  ) { }
 
   ngOnInit() {
+    this.createEventForm = this.fb.group({
+      name: ['', Validators.required],
+    });
   }
 
   onSubmit() {

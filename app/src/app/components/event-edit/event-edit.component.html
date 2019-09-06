@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto m-5">
+  <mat-card>
+    <form [formGroup]="editEventForm" (ngSubmit)="onSubmit()">
+      <h2 class="my-3 font-bold underline">Edit Event</h2>
+      <mat-form-field class="w-full">
+        <input matInput placeholder="Name" type="text" formControlName="name">
+        <mat-error *ngIf="editEventForm.get('name').errors?.required">
+          Path `name` is required.
+        </mat-error>
+        <!-- Server-side validation -->
+        <mat-error *ngIf="editEventForm.get('name').errors?.serverError">
+          {{ editEventForm.get('name').errors?.serverError }}
+        </mat-error>
+      </mat-form-field>
+      <div formArrayName="guests">
+        <h2 class="my-3 font-bold">Guests</h2>
+        <div *ngFor="let guest of guestsForms.controls; let i = index" [formGroupName]="i">
+          <div class="flex items-center justify-between">
+            <mat-form-field class="w-full mr-3">
+              <input matInput placeholder="Guest name" type="text" formControlName="name">
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="warn" type="button" (click)="removeGuest(i)">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <button mat-raised-button color="primary" type="button" (click)="addGuest()">Add</button>
+      </div>
+      <div class="w-full text-right">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!editEventForm.valid">Edit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

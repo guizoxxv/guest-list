@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "100ac880-9c7b-471c-9398-d9d0fb1a3746",
+		"name": "guest-list",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "events",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						},
+						"description": "List events."
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Paranoid Android\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events"
+							]
+						},
+						"description": "Create event."
+					},
+					"response": []
+				},
+				{
+					"name": "updateGuests",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"guests\": [\n\t\t{\n\t\t\t\"name\": \"guest1\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"guest2\"\n\t\t}\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events/5d352035f64fd40040de0b73/update-guests",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events",
+								"5d352035f64fd40040de0b73",
+								"update-guests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "faker",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/faker",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"faker"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseUrl}}/events/5d352035f64fd40040de0b73",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"events",
+								"5d352035f64fd40040de0b73"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "15ae537e-a869-499d-a721-93782157b74c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3d2d04f4-f6fc-493b-ba58-1435a980dfac",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

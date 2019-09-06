@@ -26,12 +26,14 @@ import { GuestListComponent } from './components/guest-list/guest-list.component
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventCreateComponent } from './components/event-create/event-create.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FlashMessageComponent } from './components/flash-message/flash-message.component';
+import { EventEditComponent } from './components/event-edit/event-edit.component';
+
 import { DeleteEventDialog } from './components/dialogs/delete-event.component';
 
 import { GuestListReducer } from './reducers/guest-list.reducer';
 import { EventListReducer } from './reducers/event-list.reducer';
 import { AppReducer } from './reducers/app.reducer';
-import { FlashMessageComponent } from './components/flash-message/flash-message.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { FlashMessageComponent } from './components/flash-message/flash-message.
     DeleteEventDialog,
     EventCreateComponent,
     FlashMessageComponent,
+    EventEditComponent,
   ],
   imports: [
     BrowserModule,

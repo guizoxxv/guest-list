@@ -14,3 +14,4 @@
 * Events list - creation date, event date, number of guests columns
 * Remove FlashMessage timeout reset time if a subsequent event is triggered before later ends
 * Mongoose sort on subdocument. Aparently default sort is by update. Without this I needed to sort via javascript using underscore.js
+* unique guest name on event
