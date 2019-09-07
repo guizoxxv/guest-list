@@ -1,11 +1,12 @@
 const Event = require('../models/event').model;
+const Guest = require('../models/guest').model;
+const formatName = require('../utils').formatName;
 const _ = require('underscore');
 
 exports.getAll = (req, res) => {
-    console.clear();
+    // console.clear();
     Event.find({})
         .sort({ name: 1 })
-        .select('name')
         .then(docs => {
             res.status(200).json(docs);
         })
@@ -53,6 +54,7 @@ exports.create = (req, res) => {
             });
         })
         .catch(err => {
+            console.log(err);
             if (err.name === "ValidationError") {
                 res.status(422).json(err);
             }
@@ -86,20 +88,45 @@ exports.delete = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    Event.findByIdAndUpdate(req.body.id, { name: req.body.name }, { new: true })
-        .then(event => {
-            if(event) {
+    let { name, guests } = req.body;
+
+    let dbGuests = guests.map(guest => {
+        let dbGuest = new Guest;
+
+        dbGuest.name = guest.name;
+        dbGuest.formatted_name = formatName(guest.name);
+
+        return dbGuest;
+    });
+
+    Event.findById(req.params.eventId)
+        .then(doc => {
+            doc.name = name;
+            doc.guests = dbGuests;
+
+            doc.save()
+            .then(res => {
                 res.status(200).json({
                     message: 'Event updated.',
-                    event: event
+                    event: doc
                 });
-            } else {
-                res.status(404).json({
-                    message: 'Event not found.'
+            })
+            .catch(err => {
+                if (err.name === "ValidationError") {
+                    res.status(422).json(err);
+                }
+
+                res.status(500).json({
+                    message: 'An error occurred.',
+                    error: err,
                 }); 
-            }
+            });
         })
         .catch(err => {
+            if (err.name === "ValidationError") {
+                res.status(422).json(err);
+            }
+
             res.status(500).json({
                 message: 'An error occurred.',
                 error: err,

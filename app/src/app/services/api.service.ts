@@ -16,19 +16,23 @@ export class ApiService {
     return this.http.get(`${this.apiHost}/api/events`);
   }
 
-  getEvent(eventId: string) {
-    return this.http.get(`${this.apiHost}/api/events/${eventId}`);
-  }
-
   createEvent(event) {
     return this.http.post(`${this.apiHost}/api/events`, event);
   }
 
-  updateGuestPresent(eventId: string, guest) {
-    return this.http.put(`${this.apiHost}/api/events/${eventId}/update-guest-presence`, guest);
+  getEvent(eventId: string) {
+    return this.http.get(`${this.apiHost}/api/events/${eventId}`);
+  }
+
+  updateEvent(eventId: string, event) {
+    return this.http.put(`${this.apiHost}/api/events/${eventId}`, event);
   }
 
   deleteEvent(eventId: string) {
-    return this.http.delete(`${this.apiHost}/api/events/${eventId}/delete`);
+    return this.http.delete(`${this.apiHost}/api/events/${eventId}`);
+  }
+
+  updateGuestPresent(eventId: string, guest) {
+    return this.http.put(`${this.apiHost}/api/events/${eventId}/update-guest-presence`, guest);
   }
 }

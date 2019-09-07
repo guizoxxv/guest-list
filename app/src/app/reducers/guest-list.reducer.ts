@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material';
 
 export function GuestListReducer(state = {
     eventName: null,
+    guests: [],
     guestsDataSource: null,
     guestsFilter: '',
     guestsCount: 0,
@@ -13,7 +14,8 @@ export function GuestListReducer(state = {
 }, action) {
     switch (action.type) {
         case ActionTypes.GuestsSet:
-            let dataSource = new MatTableDataSource(action.payload);
+            let guests = action.payload;
+            let dataSource = new MatTableDataSource(guests);
             let guestsCount = action.payload.length;
             let guestsPresentCount = action.payload.filter(guest => {
                 return guest.present === true;
@@ -25,9 +27,10 @@ export function GuestListReducer(state = {
 
             return {
                 ...state,
+                guests,
                 guestsDataSource: dataSource,
-                guestsCount: guestsCount,
-                guestsPresentCount: guestsPresentCount,
+                guestsCount,
+                guestsPresentCount,
             };
         case ActionTypes.GuestsFilter:
             state.guestsDataSource.filter = action.payload;

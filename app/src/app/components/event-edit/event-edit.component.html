@@ -1,5 +1,6 @@
 <app-navbar></app-navbar>
 <div class="container mx-auto m-5">
+  <app-flash-message></app-flash-message>
   <mat-card>
     <form [formGroup]="editEventForm" (ngSubmit)="onSubmit()">
       <h2 class="my-3 font-bold underline">Edit Event</h2>
@@ -19,6 +20,13 @@
           <div class="flex items-center justify-between">
             <mat-form-field class="w-full mr-3">
               <input matInput placeholder="Guest name" type="text" formControlName="name">
+              <mat-error *ngIf="guest.get('name').errors?.required">
+                Path `name` is required.
+              </mat-error>
+              <!-- Server-side validation -->
+              <mat-error *ngIf="guest.get('name').errors?.serverError">
+                {{ guest.get('name').errors?.serverError }}
+              </mat-error>
             </mat-form-field>
             <div>
               <button mat-raised-button color="warn" type="button" (click)="removeGuest(i)">Remove</button>
