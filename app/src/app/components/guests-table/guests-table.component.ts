@@ -41,5 +41,11 @@ export class GuestsTableComponent implements OnInit {
           });
       });
   }
+
+  hasGuests() {
+    this.guestsCount$.subscribe(value => {
+      return value > 0;
+    });
+  }
   
 }
